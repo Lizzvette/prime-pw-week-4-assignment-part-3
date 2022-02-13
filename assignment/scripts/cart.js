@@ -1,44 +1,74 @@
 console.log('***** Cart Functions *****');
 // Make sure to test all functions here in the JS file!
 // We want to see how you are testing your code!!!!!
-const basket = []; // global usually const?
-const maxItems =10; // Flag variable
 
-function addItem('item') {
-  // code conditon if/else
+//- Create a global variable named `basket` and set it to an empty array.
+let basket = []; // global usually const
+const maxItems = 5;
+
+function isFull(basket){
+  if(basket.length >= 5)
   return true;
+    if (basket.length <= 5)
+  return false;
 }
-console.log(`Basket is ${basket}`);
-console.log('Adding apples (expect true)', addItem('apples'));
-console.log(`Basket is now ${basket}`);
-
-funtion listItems (){
-  //code loop over array basket
-}
-console.log(each item in new line);
-
-function empty (){
-  reset 'basket' to empty array
-}
-
-/* ### Required Features
-Update the `cart.js` file to do the following:
-
-- Create a global variable named `basket` and set it to an empty array.
-
-- Create a function called `addItem`. It should:
+//console.log(`Basket is ${basket}`);
+/* Create a function called `addItem`. It should:
   - take an input parameter for a string `item`
   - add the new item to the global array `basket`.
-  - return `true` indicating the item was added
+  - return `true` indicating the item was added*/
 
-- Create a function called `listItems`. It should:
+function addItem(item) {
+  if(isFull(basket)){
+    //console.log(`The basket is full.`);
+  return false;
+} else {
+  console.log(`The basket has an added item`);
+  basket.push(item);
+  //console.log('Adding apples (expect true)', addItem('apples'));
+  return true;
+}
+}// end addItem
+console.log(`Basket has 2 items: apples and oranges ${basket}`);
+
+/* Create a function called `listItems`. It should:
   - loop over the items in the `basket` array
-  - console.log each individual item on a new line
+  - console.log each individual item on a new line*/
+  // Could loop over with for/of :for (const theseItems of basket) { console.log ('sentence' + theseItems);}
+  function listItems(basket) {
+    for (let i = 0; i < basket.length; i++){
+      console.log(basket[i]);
+    }
+    return;
+  }
 
-- Create a function called `empty`. It should:
-  - reset the `basket` to an empty array
+ //added another item to check
+//console.log(`Basket is now ${basket}`); // the basket now has apples and oranges
 
-> __IMPORTANT__
+/*Create a function called `empty`. It should:
+  - reset the `basket` to an empty array*/
+  function empty (basket){
+    //reset 'basket' to empty array
+    basket = [];
+  }
+
+
+//console.log(`Basket is ${basket}`);
+//console.log('Adding apples (expect true)', addItem('apples'));
+// console.log(`Basket is now ${basket}`);
+
+//added another item to check
+//console.log(`Basket is now ${basket}`); // the basket now has apples and oranges
+
+//console.log('Adding apples (expect true)', addItem('apples'));
+// console.log(`Basket is now ${basket}`);
+//console.log(`Basket is ${basket}`);
+console.log('Adding apples (expect true)', addItem('apples'));
+console.log('Adding oranges (expect true)', addItem('oranges'));
+
+
+
+/*> __IMPORTANT__
 > Make sure that you are writing code *in the file* to test every function that you write!
 
 For example, to test `addItem`:
